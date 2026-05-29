@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zach Berks — Software Engineer | Open to Work in Denver</title>
+  <meta
+    name="description"
+    content="Zach Berks is a software engineer exploring new opportunities in the Denver, Colorado area. Experience, skills, live job openings, and contact."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Navigation -->
+  <header class="nav" id="top">
+    <div class="container nav__inner">
+      <a href="#top" class="nav__brand">Zach&nbsp;Berks</a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#openings">Openings</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero__inner">
+      <p class="hero__eyebrow">
+        <span class="pulse"></span> Open to new roles &middot; Denver, CO &amp; remote
+      </p>
+      <h1 class="hero__title">Hi, I'm Zach Berks &mdash;<br />a software engineer.</h1>
+      <p class="hero__subtitle">
+        I build reliable, well-crafted software and I'm looking for my next role
+        in the <strong>Denver, Colorado</strong> area. I care about clean code,
+        solving real problems, and shipping things people actually use.
+      </p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="#contact">Get in touch</a>
+        <a class="btn btn--ghost" href="#openings">See live openings</a>
+      </div>
+      <ul class="hero__facts">
+        <li><span class="fact__num">Full-stack</span> engineer</li>
+        <li><span class="fact__num">Denver</span> &amp; remote-friendly</li>
+        <li><span class="fact__num">Available</span> now</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="section" id="about">
+    <div class="container">
+      <h2 class="section__title">About</h2>
+      <div class="about__grid">
+        <p class="about__lead">
+          I'm a Denver-based software engineer who turns ambiguous problems into
+          shipped, maintainable products. I move quickly without cutting corners,
+          and I like working close to the users I'm building for.
+        </p>
+        <p>
+          Right now I'm actively interviewing and would love to connect with
+          teams along the Front Range &mdash; from early-stage startups to
+          established engineering orgs &mdash; building something they're proud
+          of. <em>Tip: replace this copy with your own story, stack, and the
+          kind of role you want.</em>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section class="section section--alt" id="experience">
+    <div class="container">
+      <h2 class="section__title">Experience</h2>
+      <ol class="timeline">
+        <li class="timeline__item">
+          <div class="timeline__head">
+            <h3>Software Engineer &mdash; Most Recent Role</h3>
+            <span class="timeline__meta">Denver, CO &middot; 20XX&ndash;Present</span>
+          </div>
+          <p>
+            Owned features end-to-end across the stack, collaborated with product
+            and design, and shipped improvements that moved real metrics.
+            <em>Replace with your actual accomplishments and numbers.</em>
+          </p>
+        </li>
+        <li class="timeline__item">
+          <div class="timeline__head">
+            <h3>Software Engineer &mdash; Previous Role</h3>
+            <span class="timeline__meta">20XX&ndash;20XX</span>
+          </div>
+          <p>
+            Built foundational skills, took on increasing ownership, and
+            contributed to a high-performing team. <em>Replace with your real
+            accomplishments and metrics.</em>
+          </p>
+        </li>
+        <li class="timeline__item">
+          <div class="timeline__head">
+            <h3>Where I Started</h3>
+            <span class="timeline__meta">20XX&ndash;20XX</span>
+          </div>
+          <p>
+            Learned the fundamentals, developed a strong engineering work ethic,
+            and got hooked on building. <em>Replace with your real background.</em>
+          </p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section class="section" id="skills">
+    <div class="container">
+      <h2 class="section__title">What I bring</h2>
+      <div class="skills__grid">
+        <article class="card">
+          <h3>Frontend</h3>
+          <p>React, TypeScript, modern CSS &mdash; accessible, responsive UIs that feel fast.</p>
+        </article>
+        <article class="card">
+          <h3>Backend &amp; APIs</h3>
+          <p>Designing services, data models, and REST/GraphQL APIs that scale.</p>
+        </article>
+        <article class="card">
+          <h3>Cloud &amp; DevOps</h3>
+          <p>CI/CD, containers, and cloud deploys that keep shipping smooth and safe.</p>
+        </article>
+        <article class="card">
+          <h3>Collaboration</h3>
+          <p>Clear communicator who works well across teams and builds trust quickly.</p>
+        </article>
+      </div>
+      <p class="skills__note">
+        <em>Swap these for your real stack &mdash; languages, frameworks, and tools you know best.</em>
+      </p>
+    </div>
+  </section>
+
+  <!-- Live Openings -->
+  <section class="section section--alt" id="openings">
+    <div class="container">
+      <h2 class="section__title">Denver-area openings I'm exploring</h2>
+      <p class="openings__lead">
+        A snapshot of real software engineering roles in the Denver metro,
+        sourced from Indeed. Click a title to view and apply.
+      </p>
+      <div class="jobs" id="jobs"><!-- populated by script.js --></div>
+      <p class="openings__foot">
+        Listings current as of <span id="snapshot-date">May 2026</span> &middot;
+        Source: Indeed. Roles fill quickly &mdash; check the live link for the latest.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section section--cta" id="contact">
+    <div class="container contact__inner">
+      <h2 class="section__title">Let's talk</h2>
+      <p class="contact__lead">
+        If you're hiring engineers in the Denver area &mdash; or know someone who
+        is &mdash; I'd love to hear from you.
+      </p>
+      <div class="contact__actions">
+        <a class="btn btn--primary" href="mailto:zberks16@gmail.com">Email me</a>
+        <a class="btn btn--ghost" href="https://www.linkedin.com/" target="_blank" rel="noopener">
+          LinkedIn
+        </a>
+      </div>
+      <p class="contact__email">zberks16@gmail.com</p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span>&copy; <span id="year"></span> Zach Berks</span>
+      <a href="#top">Back to top &uarr;</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
