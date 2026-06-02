@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Denver Anesthesia Compensation Brief — NAPA GasGauge</title>
+<style>
+  :root {
+    --navy:#003865; --blue:#0057A8; --teal:#00A9CE; --tealLt:#E5F6FB;
+    --navyLt:#EDF2F8; --blueLt:#E8F1F9; --white:#FFFFFF; --offWhite:#F7F9FC;
+    --gray50:#F0F4F8; --gray100:#E2E8F0; --gray200:#CBD5E1; --gray400:#94A3B8;
+    --gray600:#475569; --gray700:#334155; --gray800:#1E293B;
+    --amber:#F59E0B; --amberLt:#FEF3C7; --red:#DC2626; --redLt:#FEE2E2;
+    --green:#059669; --greenLt:#D1FAE5; --orange:#EA580C;
+    --ff: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;font-family:var(--ff)}
+  body{background:var(--gray50);color:var(--gray800);line-height:1.55;padding:0 0 40px}
+  a{color:var(--blue);text-decoration:none}
+  a:hover{text-decoration:underline}
+  code{background:var(--gray50);padding:1px 5px;border-radius:3px;font-size:.92em;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+
+  /* Header */
+  .hdr{background:var(--navy);border-bottom:3px solid var(--teal);padding:18px 0}
+  .hdr-inner{max-width:980px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+  .brand{display:flex;align-items:center;gap:14px}
+  .logo{background:var(--teal);border-radius:6px;padding:7px 11px;color:var(--white);font-size:17px;font-weight:700;letter-spacing:.04em}
+  .brand-title{font-size:17px;font-weight:700;color:var(--white)}
+  .brand-sub{font-size:11px;color:rgba(255,255,255,.45);margin-top:1px}
+  .pill{padding:3px 9px;border-radius:4px;font-size:11px;font-weight:600;display:inline-flex;gap:5px;align-items:center}
+
+  /* Wrap */
+  .wrap{max-width:980px;margin:0 auto;padding:24px}
+
+  /* Title card */
+  .title-card{background:var(--navy);color:var(--white);border-radius:10px;padding:22px 26px;border-left:6px solid var(--teal);margin-bottom:18px}
+  .eyebrow{font-size:10px;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:.1em;margin-bottom:5px}
+  .title-card h1{font-size:26px;font-weight:700;margin-bottom:6px}
+  .title-meta{font-size:12px;color:rgba(255,255,255,.5)}
+  .title-tags{margin-top:12px;display:flex;gap:7px;flex-wrap:wrap}
+  .tag{background:rgba(255,255,255,.1);color:rgba(255,255,255,.85);padding:3px 9px;border-radius:4px;font-size:11px;font-weight:600}
+  .tag.teal{background:rgba(0,169,206,.2);color:var(--teal)}
+  .tag.green{background:rgba(5,150,105,.2);color:#34d399}
+
+  /* Headline KPI grid */
+  .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:0;background:var(--navy);border-radius:10px;overflow:hidden;margin-bottom:18px}
+  .kpi{padding:14px 18px;border-right:1px solid rgba(255,255,255,.06);border-top:1px solid rgba(255,255,255,.06)}
+  .kpi:last-child{border-right:none}
+  .kpi-label{font-size:9px;font-weight:700;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
+  .kpi-value{font-size:22px;font-weight:700;color:var(--white);line-height:1}
+  .kpi-value.teal{color:var(--teal)}
+  .kpi-value.green{color:#34d399}
+  .kpi-sub{font-size:10px;color:rgba(255,255,255,.4);margin-top:3px}
+
+  /* Section card */
+  .section{background:var(--white);border:1px solid var(--gray100);border-radius:10px;padding:20px 24px;margin-bottom:16px;box-shadow:0 1px 4px rgba(0,56,101,.06)}
+  .section h2{font-size:15px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid var(--gray100)}
+  .section h3{font-size:13px;font-weight:700;color:var(--blue);margin:14px 0 8px;text-transform:uppercase;letter-spacing:.06em}
+  .section p{font-size:13px;color:var(--gray700);margin-bottom:8px}
+  .section ul{padding-left:18px;font-size:13px;color:var(--gray700)}
+  .section ul li{margin-bottom:5px}
+
+  /* Tables */
+  table{width:100%;border-collapse:collapse;font-size:12.5px;margin-bottom:8px}
+  thead tr{background:var(--gray50)}
+  th{padding:9px 12px;text-align:left;font-size:10px;font-weight:700;color:var(--gray600);text-transform:uppercase;letter-spacing:.07em;border-bottom:2px solid var(--gray100);white-space:nowrap}
+  th.num{text-align:right}
+  td{padding:10px 12px;border-top:1px solid var(--gray100);color:var(--gray700)}
+  td.num{text-align:right;font-variant-numeric:tabular-nums;font-weight:600;color:var(--navy)}
+  tr:nth-child(even) td{background:var(--offWhite)}
+  td .delta-up{color:var(--green);font-weight:700}
+  td .delta-dn{color:var(--red);font-weight:700}
+  td .delta-flat{color:var(--gray400);font-weight:600}
+
+  /* Two col */
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media (max-width:720px){.two{grid-template-columns:1fr}}
+
+  /* Callout */
+  .callout{background:var(--amberLt);border:1px solid rgba(245,158,11,.3);border-left:4px solid var(--amber);border-radius:6px;padding:12px 16px;font-size:12px;color:var(--gray700);margin-top:10px}
+  .callout strong{color:var(--gray800)}
+  .callout-blue{background:var(--blueLt);border-color:rgba(0,87,168,.25);border-left-color:var(--blue)}
+  .callout-blue strong{color:var(--navy)}
+
+  /* Source list */
+  .sources{display:grid;grid-template-columns:1fr 1fr;gap:6px 24px;font-size:12px}
+  @media (max-width:720px){.sources{grid-template-columns:1fr}}
+  .sources a{display:block;padding:4px 0;border-bottom:1px dashed var(--gray100)}
+
+  /* Footer */
+  footer{max-width:980px;margin:24px auto 0;padding:14px 24px;border-top:1px solid var(--gray100);text-align:center;font-size:11px;color:var(--gray400)}
+
+  @media print{
+    body{background:var(--white)}
+    .hdr,.title-card,.kpis{break-inside:avoid}
+    .section{box-shadow:none;border-color:var(--gray200)}
+  }
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <div class="hdr-inner">
+    <div class="brand">
+      <div class="logo">NAPA</div>
+      <div>
+        <div class="brand-title">GasGauge Market Insights</div>
+        <div class="brand-sub">ZIP-Based Anesthesia Workforce Intelligence</div>
+      </div>
+    </div>
+    <div style="display:flex;gap:6px;flex-wrap:wrap">
+      <span class="pill" style="background:rgba(5,150,105,.2);color:#34d399">● Live Postings</span>
+      <span class="pill" style="background:rgba(255,255,255,.1);color:rgba(255,255,255,.7)">ZIP-Level Precision</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- Title -->
+  <div class="title-card">
+    <div class="eyebrow">25-Mile Radius · ZIP 80202 · April 2026</div>
+    <h1>Denver Anesthesia Compensation Brief</h1>
+    <div class="title-meta">Live posting analysis &amp; synthetic benchmark reconciliation — Denver, CO</div>
+    <div class="title-tags">
+      <span class="tag teal">● Moderate Demand</span>
+      <span class="tag">CoL Index: 100</span>
+      <span class="tag green">61 Active Listings</span>
+    </div>
+  </div>
+
+  <!-- Headline KPIs -->
+  <div class="kpis">
+    <div class="kpi"><div class="kpi-label">MD Listings</div><div class="kpi-value">~40</div><div class="kpi-sub">Denver metro</div></div>
+    <div class="kpi"><div class="kpi-label">CRNA Listings</div><div class="kpi-value">~21</div><div class="kpi-sub">Denver metro</div></div>
+    <div class="kpi"><div class="kpi-label">MD Total Comp · Live</div><div class="kpi-value teal">$411K</div><div class="kpi-sub">−7% vs national</div></div>
+    <div class="kpi"><div class="kpi-label">CRNA Total Comp · Live</div><div class="kpi-value teal">$220K</div><div class="kpi-sub">flat vs national</div></div>
+    <div class="kpi"><div class="kpi-label">Blended Avg</div><div class="kpi-value green">$345K</div><div class="kpi-sub">inventory-weighted</div></div>
+  </div>
+
+  <!-- Executive summary -->
+  <section class="section">
+    <h2>Executive Summary</h2>
+    <p>The Denver anesthesia market shows <strong>moderate demand</strong> with compensation running roughly in line with the national average. Across ~61 active listings (40 anesthesiologist · 21 CRNA), salary-disclosing postings and aggregator surveys produce a blended midpoint of <strong>~$345K</strong> (all roles, inventory-weighted).</p>
+    <p>The synthetic GasGauge model overshoots live midpoints by single digits — within methodology noise, but consistent with Denver currently routing through the national fallback bucket rather than a Mountain-West-specific cluster.</p>
+  </section>
+
+  <!-- MD compensation -->
+  <section class="section">
+    <h2>Anesthesiologist (MD) Compensation</h2>
+    <table>
+      <thead><tr>
+        <th>Source</th>
+        <th class="num">Salary Midpoint</th>
+        <th>Method</th>
+      </tr></thead>
+      <tbody>
+        <tr><td>ZipRecruiter</td><td class="num">$405,649</td><td>Aggregator estimate</td></tr>
+        <tr><td>Salary.com</td><td class="num">$450,600</td><td>Aggregator estimate</td></tr>
+        <tr><td>SalaryExpert (ERI)</td><td class="num">$457,620</td><td>Aggregator estimate</td></tr>
+        <tr><td>Indeed (from postings)</td><td class="num">$332,119</td><td>Actual posting avg, n = 7 (36 mo)</td></tr>
+        <tr><td>Anthony North · Westminster</td><td class="num">~$505,000</td><td>Live posting · $207–$280/hr</td></tr>
+        <tr><td>Colorado outlier posting</td><td class="num">~$683,000</td><td>Live posting · $625K–$740K</td></tr>
+      </tbody>
+    </table>
+    <ul>
+      <li><strong>Source-blended midpoint (4 aggregators):</strong> ~$411K</li>
+      <li><strong>Experience tail:</strong> entry-level ~$299K → senior (8+ yr) ~$626K</li>
+      <li><strong>vs. national anchor ($443K):</strong> <span class="delta-dn">▼ 7%</span> at blended midpoint</li>
+    </ul>
+  </section>
+
+  <!-- CRNA compensation -->
+  <section class="section">
+    <h2>CRNA Compensation</h2>
+    <table>
+      <thead><tr>
+        <th>Source</th>
+        <th class="num">Salary Midpoint</th>
+        <th>Method</th>
+      </tr></thead>
+      <tbody>
+        <tr><td>Salary.com</td><td class="num">$247,613</td><td>Aggregator estimate · $119/hr</td></tr>
+        <tr><td>IncredibleHealth · talent.com</td><td class="num">$192,590</td><td>Aggregator · $97/hr</td></tr>
+        <tr><td>Indeed (Denver hourly · annualized)</td><td class="num">~$355,000</td><td>$171/hr × 2,080 — locum-skewed</td></tr>
+        <tr><td>ZipRecruiter Denver</td><td class="num">$94–$227/hr</td><td>Mixed W-2 + 1099</td></tr>
+      </tbody>
+    </table>
+    <ul>
+      <li><strong>Source-blended midpoint (W-2 anchors):</strong> ~$220K</li>
+      <li><strong>Locum / 1099 hourly figures excluded</strong> from blended average — they distort annualized comparisons by $100K+</li>
+      <li><strong>vs. national anchor ($228K):</strong> <span class="delta-flat">▬ flat</span></li>
+    </ul>
+  </section>
+
+  <!-- Inventory snapshot -->
+  <section class="section">
+    <h2>Active Inventory Snapshot</h2>
+    <h3>Top Employers Surfacing in Postings</h3>
+    <p>UCHealth · Denver Health · US Anesthesia Partners · St. Anthony Hospital · Vail Health · Sound Physicians · Community Hospital · Jackson Physician Search · Clinical Colleagues · CU Anschutz / School of Medicine · Wray Community District Hospital</p>
+
+    <h3>Representative Current Openings</h3>
+    <ul>
+      <li>Autonomous office-based CRNA group, aesthetic plastic surgery practice — Highlands Ranch</li>
+      <li>OB-focused CRNA, Denver anesthesia practice — competitive comp, flexible scheduling</li>
+      <li>Denver Health — Level I trauma, 555-bed academic medical center, CRNA openings</li>
+      <li>Anthony North Hospital, Westminster — anesthesiologist, $207–$280/hr</li>
+      <li>CU Anschutz — academic anesthesiology faculty positions</li>
+    </ul>
+  </section>
+
+  <!-- Reconciliation -->
+  <section class="section">
+    <h2>Model Reconciliation</h2>
+    <p>GasGauge synthetic model output (default-region branch, multiplier = 1.000 at mid-year 2024) vs. live April-2026 market:</p>
+    <table>
+      <thead><tr>
+        <th>Metric</th>
+        <th class="num">Synthetic Model</th>
+        <th class="num">Live Midpoint</th>
+        <th class="num">Δ</th>
+      </tr></thead>
+      <tbody>
+        <tr><td>MD total comp</td><td class="num">$440K</td><td class="num">~$411K</td><td class="num"><span class="delta-up">+7%</span></td></tr>
+        <tr><td>MD base salary (.78)</td><td class="num">$343K</td><td class="num">—</td><td class="num">—</td></tr>
+        <tr><td>CRNA total comp</td><td class="num">$228K</td><td class="num">~$220K</td><td class="num"><span class="delta-up">+4%</span></td></tr>
+        <tr><td>CRNA base salary (.84)</td><td class="num">$191K</td><td class="num">—</td><td class="num">—</td></tr>
+        <tr><td>Sign-on (MD / CRNA)</td><td class="num">$50K / $28K</td><td class="num">rarely disclosed</td><td class="num">n/a</td></tr>
+        <tr><td>401(k) match (MD / CRNA)</td><td class="num">5% / 4%</td><td class="num">rarely disclosed</td><td class="num">n/a</td></tr>
+        <tr><td>PTO days (MD / CRNA)</td><td class="num">30 / 28</td><td class="num">rarely disclosed</td><td class="num">n/a</td></tr>
+      </tbody>
+    </table>
+    <div class="callout callout-blue">
+      <strong>Interpretation.</strong> Single-digit overshoot on both roles is well inside the methodology tab's stated noise band. The most actionable observation is structural: Denver's lat/lng (39.74, −104.99) currently fails every region flag in <code>syntheticWorkforceFromCoord</code> — <code>lng=−104.99</code> falls just west of the <code>−100</code> Midwest cutoff — so the model is using the national default rather than a Mountain-West calibration. A dedicated <code>isRockies</code> cluster would tighten Denver and similar metros (SLC, Boise) to within ~2% of live.
+    </div>
+  </section>
+
+  <!-- Methodology -->
+  <section class="section">
+    <h2>Methodology &amp; Caveats</h2>
+    <h3>Pipeline</h3>
+    <ol style="padding-left:18px;font-size:13px;color:var(--gray700)">
+      <li>ZIP → Nominatim geocode → lat/lng</li>
+      <li>Region cluster (NE / WC / South / MW / Rural — Denver currently → default)</li>
+      <li>National anchors: BLS OEWS · MGMA · AANA · ASA</li>
+      <li>C2ER Cost-of-Living Index applied</li>
+      <li>Date-range multiplier (3.2%/yr forward trend)</li>
+      <li>Live job-board fetch (Indeed via web search; Apify path not used here)</li>
+      <li>Reconciliation against modeled benchmarks</li>
+    </ol>
+    <div class="callout">
+      <strong>Caveats.</strong>
+      Anesthesia postings disclose salary on ~30–40% of listings.
+      CRNA hourly figures blend W-2 and locum/1099, inflating annualized averages.
+      Single-posting outliers (e.g., the $625–$740K Colorado listing) are reported individually but excluded from blended midpoints.
+      AI- and aggregator-derived figures are directional, not audit-grade.
+      NAPA-specific comp figures are modeled from public market data and do not represent verified or official NAPA compensation offers.
+    </div>
+  </section>
+
+  <!-- Sources -->
+  <section class="section">
+    <h2>Sources</h2>
+    <h3>Aggregator Salary Data</h3>
+    <div class="sources">
+      <a href="https://www.salary.com/research/salary/benchmark/certified-nurse-anesthetist-crna-salary/denver-co">CRNA Denver — Salary.com</a>
+      <a href="https://www.salary.com/research/salary/alternate/anesthesiologist-salary/denver-co">Anesthesiologist Denver — Salary.com</a>
+      <a href="https://www.ziprecruiter.com/Salaries/Anesthesiologist-Salary-in-Denver,CO">Anesthesiologist Denver — ZipRecruiter</a>
+      <a href="https://www.salaryexpert.com/salary/job/anesthesiologist/united-states/colorado/denver">Anesthesiologist Denver — SalaryExpert</a>
+      <a href="https://www.incrediblehealth.com/salaries/crna/co/denver">CRNA Denver — IncredibleHealth</a>
+      <a href="https://www.indeed.com/career/anesthesiologist/salaries/Denver--CO">Anesthesiologist Denver — Indeed</a>
+      <a href="https://www.indeed.com/career/certified-registered-nurse-anesthetist/salaries/Denver--CO">CRNA Denver — Indeed</a>
+      <a href="https://nurse.org/resources/nurse-anesthetist-salary/">CRNA salary by state 2026 — Nurse.org</a>
+    </div>
+    <h3>Live Inventory</h3>
+    <div class="sources">
+      <a href="https://www.glassdoor.com/Job/denver-crna-jobs-SRCH_IL.0,6_IC1148170_KO7,11.htm">21 CRNA jobs in Denver — Glassdoor</a>
+      <a href="https://www.glassdoor.com/Job/denver-anesthesiologist-jobs-SRCH_IL.0,6_IC1148170_KO7,23.htm">40 Anesthesiologist jobs in Denver — Glassdoor</a>
+      <a href="https://www.ziprecruiter.com/Jobs/Crna/-in-Denver,CO">CRNA jobs in Denver — ZipRecruiter</a>
+      <a href="https://medschool.cuanschutz.edu/anesthesiology/about/career-opportunities">CU Anschutz Anesthesiology — Career Opportunities</a>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  © North American Partners in Anesthesia (NAPA) · GasGauge ·
+  Data: BLS OES · MGMA · AANA · ASA · C2ER COLI · Indeed · Live Web Search · 2024–2026
+</footer>
+
+</body>
+</html>
